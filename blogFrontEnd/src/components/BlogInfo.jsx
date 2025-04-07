@@ -1,4 +1,5 @@
-import blogService from '../services/blogs'
+import PropTypes from "prop-types"
+
 const BlogInfo = ({blog, vote, deleteBlog}) => {
     const nameOfUser = blog.user ? blog.user.name : 'anonymous'
 
@@ -32,6 +33,17 @@ const BlogInfo = ({blog, vote, deleteBlog}) => {
             </div>
         </div>
     )
+}
+
+BlogInfo.propTypes = {
+    blog: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        user: PropTypes.object,
+    }).isRequired,
+    vote: PropTypes.func.isRequired,
+    deleteBlog: PropTypes.func.isRequired
 }
 
 export default BlogInfo

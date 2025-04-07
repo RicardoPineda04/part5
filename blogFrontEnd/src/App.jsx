@@ -10,9 +10,9 @@ const App = () => {
   const [blogs, setBlogs] = useState([])
   const [username, setUsername] = useState('') 
   const [password, setPassword] = useState('')
-  const [title, setTitle] = useState('') 
-  const [author, setAuthor] = useState('')
-  const [url, setUrl] = useState('') 
+  // const [title, setTitle] = useState('') 
+  // const [author, setAuthor] = useState('')
+  // const [url, setUrl] = useState('') 
   const [user, setUser] = useState(null)
   const [message, setMessage] = useState(null)
   const [typeMessage, setTypeMessage] = useState(null)
@@ -58,38 +58,38 @@ const App = () => {
     </form>      
   )
 
-  const newBlogForm = () => (
-    <form onSubmit={handleNewBlog}>
-      <div>
-        Title
-          <input
-          type="text"
-          value={title}
-          name="Title"
-          onChange={({ target }) => setTitle(target.value)}
-        />
-      </div>
-      <div>
-        Author
-          <input
-          type="text"
-          value={author}
-          name="Author"
-          onChange={({ target }) => setAuthor(target.value)}
-        />
-      </div>
-      <div>
-        URL
-          <input
-          type="text"
-          value={url}
-          name="URL"
-          onChange={({ target }) => setUrl(target.value)}
-        />
-      </div>
-      <button type="submit">Send</button>
-    </form>
-  )
+  // const newBlogForm = () => (
+  //   <form onSubmit={handleNewBlog}>
+  //     <div>
+  //       Title
+  //         <input
+  //         type="text"
+  //         value={title}
+  //         name="Title"
+  //         onChange={({ target }) => setTitle(target.value)}
+  //       />
+  //     </div>
+  //     <div>
+  //       Author
+  //         <input
+  //         type="text"
+  //         value={author}
+  //         name="Author"
+  //         onChange={({ target }) => setAuthor(target.value)}
+  //       />
+  //     </div>
+  //     <div>
+  //       URL
+  //         <input
+  //         type="text"
+  //         value={url}
+  //         name="URL"
+  //         onChange={({ target }) => setUrl(target.value)}
+  //       />
+  //     </div>
+  //     <button type="submit">Send</button>
+  //   </form>
+  // )
 
   const handleLogin = async(event) => {
     event.preventDefault()
@@ -104,7 +104,7 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (exception) {
-      setMessage('Wrong credentials')
+      setMessage(`Wrong credentials. ${exception}`)
       setTypeMessage('error')
       setTimeout(() => {
         setMessage(null)
@@ -125,7 +125,7 @@ const App = () => {
         setTypeMessage(null)
       }, 5000)
     }catch (exception) {
-      setMessage('Something went wrong')
+      setMessage(`Something went wrong. ${exception}`)
       setTypeMessage('error')
       setTimeout(() => {
         setMessage(null)
