@@ -21,7 +21,7 @@ const Blog = ({ blog, handleLike, handleDelete}) => {
     }
 
     return (
-    <div style={blogStyle}>
+    <div style={blogStyle} className='blog'>
       {blog.title} por {blog.author}
       <button onClick={() => setVerInfo(!verInfo)}>
         {verInfo ? 'hide' : 'view'}
