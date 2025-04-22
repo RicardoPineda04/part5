@@ -40,6 +40,7 @@ const App = () => {
         username
           <input
           type="text"
+          data-testid='username'
           value={username}
           name="Username"
           onChange={({ target }) => setUsername(target.value)}
@@ -49,6 +50,7 @@ const App = () => {
         password
           <input
           type="password"
+          data-testid='password'
           value={password}
           name="Password"
           onChange={({ target }) => setPassword(target.value)}
@@ -103,8 +105,8 @@ const App = () => {
       setUser(user)
       setUsername('')
       setPassword('')
-    } catch (exception) {
-      setMessage(`Wrong credentials. ${exception}`)
+    } catch (exception) {      
+      setMessage(`Wrong credentials.`)
       setTypeMessage('error')
       setTimeout(() => {
         setMessage(null)
@@ -171,6 +173,7 @@ const App = () => {
     return (
       <div>
         <h2>Log in to application</h2>
+        <Notification message={message} typemessage={typeMessage}/>
         {loginForm()} 
       </div>
     )
