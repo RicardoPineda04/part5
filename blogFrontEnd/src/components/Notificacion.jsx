@@ -1,15 +1,17 @@
 import PropTypes from "prop-types"
 
-const Notification = ({ message, typemessage }) => {
-    if (message === null) {
-      return null
-    }
+const Notification = ({ notification }) => {
+  if (!notification) {
+    return null
+  }
   
-    return (
-      <div className={`${typemessage}`}>
-        {message}
-      </div>
-    )
+  const { message, type } = notification
+    
+  return (
+    <div className={`${type}`}>
+      {message}
+    </div>
+  )
 }
 
 Notification.propTypes = {
